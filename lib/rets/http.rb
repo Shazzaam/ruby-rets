@@ -9,6 +9,7 @@ module RETS
     # Creates a new HTTP instance which will automatically handle authenting to the RETS server.
     def initialize(args)
       @headers = {"User-Agent" => "Ruby RETS/v#{RETS::VERSION}"}
+      @headers['accept-encoding'] = 'identity'
       @request_count = 0
       @config = {:http => {}}.merge(args)
       @rets_data, @cookie_list = {}, {}
